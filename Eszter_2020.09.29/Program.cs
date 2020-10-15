@@ -40,7 +40,14 @@ namespace Eszter_2020._09._29
             Console.Write("Kérem adjon meg egy másik számot: ");
             int b = int.Parse(Console.ReadLine());
             Console.WriteLine($"A paraméterezett függvény értéke, melyet már a felhasználó ad meg: {Ket_szam_osszead_parameterekkel(a, b)}");
-            Console.WriteLine($"A három szám szorzata:{szamok_osszeszorzasa(a, b, 20)} ");
+            Vonalhuz();
+            Console.WriteLine();
+            Vonalhuz_karakterrel('_');
+            Console.WriteLine($"\nA három szám szorzata:{szamok_osszeszorzasa(a, b, 20)} ");
+            Vonalhuz();
+            Console.WriteLine();//üres sor
+            char kar = '*';
+            Vonalhuz_karakterrel(kar);
             Console.ReadKey();
         }
         //Példa
@@ -64,8 +71,50 @@ namespace Eszter_2020._09._29
             return egyik * masik * harmadik;
         }
 
+        //Írj függvényt amely a másodfokú egyenlet "a,b,c" változóira megadja a függvény "x1 és x2" értékét.
+        static double Megoldokeplet(int a, int b, int c)
+        {
+            int gyokalatt = b * b - 4 * a * c;
+            if (gyokalatt < 0)
+            {
+                Console.WriteLine("Az egyenletnek nincs megoldása!");
+                return 0;
+            }
+            else if (gyokalatt == 0)
+            {
+                double ertek = -b / 2 * a;
+                return ertek;
+            }
+            else
+            {
+                double x1 = -b + (Math.Sqrt(gyokalatt) / 2 * a);
+                double x2 = -b - (Math.Sqrt(gyokalatt) / 2 * a);
+                Console.WriteLine($"x1 értéke: {x1}");
+                Console.WriteLine($"x2 értéke: {x2}");
+                return 0;
+            }
+        }
+
+        //Eljárásra egyszerű példa
+        static void Vonalhuz()
+        {
+            for (int i = 1;i<41;i++)
+            {
+                Console.Write("-");
+            }        
+        }
+
+        //Eljárásra egyszerű példa paraméterrel
+        static void Vonalhuz_karakterrel(char kar)
+        {
+            for (int i = 1;i<41;i++)
+            {
+                Console.Write(kar);
+            }
+        }
+
         //Fontos szabály(ok) paraméterezett függvény létrehozásakor:
-        //1. szabály: a paraméterben megadott érték, vagy változónak minden esetben meg kell adni a títusát.
+        //1. szabály: a paraméterben megadott érték, vagy változónak minden esetben meg kell adni a típusát.
         //2. szabály: akárhány paramétere lehet a függvénynek.
         //3. szabály: a paramétereket egymástól vesszővel válasszuk el.
 
@@ -80,5 +129,23 @@ namespace Eszter_2020._09._29
         //4. szabály: a függvénynek a neve.
         //5. szabály: mindenképpen paramétert tartalmaz, de lehet üres is.
         //6. szabály: kötelezően tartalmaznia kell a "return" kulcsszót.
+
+        //Eljárás szabályai:
+        //1.szabály: az osztályon belűl, de a main-en kívűl hozzuk létre.
+        //2. szabály: felépítése
+        //-láthatóság:  public /Minden osztályból látható
+        //              static /Csak az osztályban látható, ahol a main is van!
+        //              protected /védett
+        //              private /személyes
+        //Az eljárásnak nincs visszatérési értéke (Nincs "return")
+        //Az eljárásban kötelezően szerepelnie kell a "void" kulcsszónak.
+        //Az eljárásnak van neve (Nem lehet foglalt szó, kulcsszó)
+        //Mindenképpen paramétert tartalmaz, de lehet üres is.
+        //Ha paramétert adunk annyi paraméterrel kell meghívni, ahány paramétert adtunk a megírásakor.
+
+        //Fontos szabály(ok) paraméterezett eljárás létrehozásakor:
+        //1. szabály: a paraméterben megadott érték, vagy változónak minden esetben meg kell adni a típusát.
+        //2. szabály: akárhány paramétere lehet az eljárásnak.
+        //3. szabály: a paramétereket egymástól vesszővel válasszuk el.
     }
 }

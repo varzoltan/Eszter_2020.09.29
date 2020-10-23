@@ -48,6 +48,8 @@ namespace Eszter_2020._09._29
             Console.WriteLine();//üres sor
             char kar = '*';
             Vonalhuz_karakterrel(kar);
+            Console.WriteLine();//üres sor
+            Megoldokeplet(1,2,1);
             Console.ReadKey();
         }
         //Példa
@@ -83,7 +85,8 @@ namespace Eszter_2020._09._29
             else if (gyokalatt == 0)
             {
                 double ertek = -b / 2 * a;
-                return ertek;
+                Console.WriteLine("Az egyenlet egy megoldása van: ", (double)ertek);
+                return 0;
             }
             else
             {

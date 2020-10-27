@@ -50,6 +50,8 @@ namespace Eszter_2020._09._29
             Vonalhuz_karakterrel(kar);
             Console.WriteLine();//üres sor
             Megoldokeplet(1,2,1);
+            Vonalhuz();
+            Megoldokeplet_eljarassal(1,4,1);
             Console.ReadKey();
         }
         //Példa
@@ -85,7 +87,7 @@ namespace Eszter_2020._09._29
             else if (gyokalatt == 0)
             {
                 double ertek = -b / 2 * a;
-                Console.WriteLine("Az egyenlet egy megoldása van: ", (double)ertek);
+                Console.WriteLine("Az egyenlet egy megoldása van: {0}", ertek);
                 return 0;
             }
             else
@@ -95,6 +97,28 @@ namespace Eszter_2020._09._29
                 Console.WriteLine($"x1 értéke: {x1}");
                 Console.WriteLine($"x2 értéke: {x2}");
                 return 0;
+            }
+        }
+
+        //A fenti példa eljárással megoldva: Ez esetben ez a praktikus
+        static void Megoldokeplet_eljarassal(int a, int b, int c)
+        {
+            int gyokalatt = b * b - 4 * a * c;
+            if (gyokalatt < 0)
+            {
+                Console.WriteLine("Az egyenletnek nincs megoldása!");
+            }
+            else if (gyokalatt == 0)
+            {
+                double ertek = -b / 2 * a;
+                Console.WriteLine("Az egyenlet egy megoldása van: {0}", ertek);
+            }
+            else
+            {
+                double x1 = -b + (Math.Sqrt(gyokalatt) / 2 * a);
+                double x2 = -b - (Math.Sqrt(gyokalatt) / 2 * a);
+                Console.WriteLine($"\nx1 értéke: {x1}");
+                Console.WriteLine($"x2 értéke: {x2}");
             }
         }
 
